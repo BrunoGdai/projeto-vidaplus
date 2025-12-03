@@ -1,0 +1,102 @@
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.env/
+env/
+.venv/
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Logs
+*.log
+
+# ============================================
+# DJANGO
+# ============================================
+*.sqlite3
+local_settings.py
+db.sqlite3
+staticfiles/
+media/
+
+# ============================================
+# FASTAPI (nenhum arquivo específico, mas incluímos caches acima)
+# ============================================
+
+# ============================================
+# ENV FILES (segurança)
+# ============================================
+.env
+*.env
+env.local
+.env.local
+
+# ============================================
+# DOCKER
+# ============================================
+docker-compose.override.yml
+*.pid
+
+# ============================================
+# EDITORES
+# ============================================
+.vscode/
+.idea/
+*.swp
+*~
+
+# ============================================
+# SISTEMA OPERACIONAL
+# ============================================
+.DS_Store
+Thumbs.db
+
+# ============================================
+# PYTHON MYPY
+# ============================================
+.mypy_cache/
+
+# ============================================
+# MIGRATIONS (OPCIONAL)
+# ============================================
+# Se quiser versionar, NÃO ignore migrations.
+# Se ainda está no início do projeto e não quer colocar agora:
+# */migrations/
+# */migrations/*.py
+# !*/migrations/__init__.py
