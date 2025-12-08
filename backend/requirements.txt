@@ -1,0 +1,16 @@
+# Framework principal
+Django==5.0.4
+
+# API REST
+djangorestframework==3.15.1
+drf-spectacular==0.27.2
+djangorestframework-simplejwt==5.5.1
+
+# Banco de dados PostgreSQL
+psycopg==3.2.1
+
+# Variáveis de ambiente (.env)
+python-dotenv==1.0.1
+
+# CORS headers
+django-cors-headers==4.3.1

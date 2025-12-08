@@ -5,7 +5,7 @@ CREATE TABLE tipo_unidade (
 
 CREATE TABLE unidade_saude (
     id SERIAL PRIMARY KEY,
-    nome TEXT NOT NULL,
+    nome TEXT NOT NULL UNIQUE,
     tipo_unidade INTEGER NOT NULL REFERENCES tipo_unidade(id),
     endereco TEXT,
     email TEXT,
@@ -117,12 +117,45 @@ CREATE TABLE internacao (
     id_leito INTEGER NOT NULL REFERENCES leito(id)
 );
 
-
-CREATE TABLE administrador (
+CREATE TABLE perfil (
     id SERIAL PRIMARY KEY,
-    nome TEXT NOT NULL UNIQUE,
-    email TEXT NOT NULL,
-    telefone TEXT NOT NULL,
-    cargo TEXT NOT NULL
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    descricao TEXT
 );
 
+CREATE TABLE permissao (
+    id SERIAL PRIMARY KEY,
+    codigo VARCHAR(100) NOT NULL UNIQUE,
+    descricao TEXT
+);
+
+CREATE TABLE perfil_permissao (
+    id SERIAL PRIMARY KEY,
+
+    perfil_id INT NOT NULL,
+    permissao_id INT NOT NULL,
+
+    UNIQUE (perfil_id, permissao_id),
+
+    FOREIGN KEY (perfil_id)
+        REFERENCES perfil(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (permissao_id)
+        REFERENCES permissao(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    senha_hash TEXT NOT NULL,
+    perfil_id INT NOT NULL,
+    paciente_id INT,
+    profissional_id INT,
+
+    FOREIGN KEY (perfil_id) REFERENCES perfil(id),
+    FOREIGN KEY (paciente_id) REFERENCES paciente(id),
+    FOREIGN KEY (profissional_id) REFERENCES profissional(id)
+);

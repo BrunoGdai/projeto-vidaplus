@@ -1,13 +1,35 @@
 services:
   db:
     image: postgres:16
-    container_name: pgtest
+    container_name: vidaplus
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: testdb
+      POSTGRES_USER: vidaplus
+      POSTGRES_PASSWORD: vidaplus
+      POSTGRES_DB: vidaplus
     ports:
       - "5432:5432"
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+    networks:
+      - vidanet
+
+  backend:
+    build: ./backend
+    container_name: backend 
+    command: ["python", "wait_db.py"]
+    env_file: ./backend/.env
+    volumes:
+    - ./backend:/app
+    ports:
+    - '8000:8000'
+    depends_on:
+    - db
+    environment:
+      SECRET_KEY: "teste123456789"
+    networks:
+      - vidanet
+
+networks:
+  vidanet:
+   driver: bridge
