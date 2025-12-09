@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Exame
-from .serializers import ExameSerializer
+from .models import Internacao
+from .serializers import InternacaoSerializer
 
-class ExameViewSet(ModelViewSet):
-    queryset = Exame.objects.all()
-    serializer_class = ExameSerializer
+class InternacaoViewSet(ModelViewSet):
+    queryset = Internacao.objects.all()
+    serializer_class = InternacaoSerializer

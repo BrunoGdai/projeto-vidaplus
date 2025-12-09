@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Suprimento
-from .serializers import SuprimentoSerializer
+from .models import Movimentacao
+from .serializers import MovimentacaoSerializer
 
-class SuprimentoViewSet(ModelViewSet):
-    queryset = Suprimento.objects.all()
-    serializer_class = SuprimentoSerializer
+class MovimentacaoViewSet(ModelViewSet):
+    queryset = Movimentacao.objects.all()
+    serializer_class = MovimentacaoSerializer

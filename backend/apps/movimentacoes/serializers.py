@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Suprimento
+from .models import Movimentacao
 
-class SuprimentoSerializer(serializers.ModelSerializer):
+class MovimentacaoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Suprimento
+        model = Movimentacao
         fields = '__all__'
