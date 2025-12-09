@@ -1,0 +1,15 @@
+meta {
+  name: atualiza_unidade
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8000/api/unidades/1
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
